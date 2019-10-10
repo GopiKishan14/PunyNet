@@ -1,0 +1,1 @@
+Directory for storing trained teacher resnet18 model.
