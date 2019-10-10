@@ -1,10 +1,3 @@
-# Copyright (c) Facebook, Inc. and its affiliates.
-# All rights reserved.
-#
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-#
-
 import argparse
 from operator import attrgetter
 import os
@@ -108,7 +101,7 @@ def main():
     top_1 = evaluate(test_loader, model, criterion, device=device).item()
     print('Top-1 accuracy of quantized model: {:.2f}'.format(top_1))
 
-    torch.save(model.state_dict(), "./compressed/state.pth")
+    torch.save(model.state_dict(), "state.pth")
 
 
 def to_device(state_dict, device):

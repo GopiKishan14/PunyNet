@@ -1,10 +1,3 @@
-# Copyright (c) Facebook, Inc. and its affiliates.
-# All rights reserved.
-#
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-#
-
 import os
 import time
 import math
@@ -93,7 +86,7 @@ parser.add_argument('--finetune-whole-step-size', default=3, type=int,
 
 parser.add_argument('--restart', default='', type=str,
                     help='Already stored centroids')
-parser.add_argument('--save', default='', type=str,
+parser.add_argument('--save', default='./state_dict', type=str,
                     help='Path to save the finetuned models')
 
 import os
@@ -108,61 +101,17 @@ def main():
     args = parser.parse_args()
     args.block = '' if args.block == 'all' else args.block
 
-    # student model to quantize
-    # student = models.__dict__[args.model](pretrained=True).cuda()
-
-    # student = models.__dict__['resnet'](
-    #                 num_classes=100,
-    #                 depth=110
-    #             )
-    # teacher = models.__dict__['resnet'](
-    #                 num_classes=100,
-    #                 depth=110
-    #             )
-
-    # student = models.__dict__['wrn'](
-    #                 num_classes=100,
-    #                 depth=28,
-    #                 widen_factor=10,
-    #                 dropRate=0.3,
-    #             )
-
-    # teacher = models.__dict__['wrn'](
-    #                 num_classes=100,
-    #                 depth=28,
-    #                 widen_factor=10,
-    #                 dropRate=0.3,
-    #             )
-
-    # checkpoint = torch.load('model_best.pth.tar')
-
-    # state_dict = checkpoint['state_dict']
-
-    # updated_state_dict = OrderedDict()
-    # for k ,v in state_dict.items():
-    #     updated_state_dict[k[7:]] = v
-    #     # print(k[6:])
-
-    # student.load_state_dict(updated_state_dict)
-
-    # teacher.load_state_dict(updated_state_dict)
-
-    student = resnet50()
-    teacher = resnet50()
-    student.cuda()
-    teacher.cuda()
-    # print(net)
-
-    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    # student.to(device)
-
-    # teacher.to(device)
+    PATH = "./models/trained"
+    student = torch.load(os.path.join(PATH, "resnet18.pth"))
+    teacher = torch.load(os.path.join(PATH, "resnet18.pth"))
 
 
-    # PATH = "./models/trained"
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    student.to(device)
 
-    # student = torch.load(os.path.join(PATH, "resnet18.pth")).cuda()
-    # student.eval()
+    teacher.to(device)
+
+
 
     criterion = nn.CrossEntropyLoss().cuda()
 
@@ -185,11 +134,6 @@ def main():
     size_centroids = 0
     size_other = size_uncompressed
 
-    # teacher model
-    # teacher = models.__dict__[args.model](pretrained=True).cuda()
-    # teacher = torch.load(os.path.join(PATH, "resnet18.pth")).cuda()
-
-    # teacher.eval()
 
     # Step 1: iteratively quantize the network layers (quantization + layer-wise centroids distillation)
     print('Step 1: Quantize network')
