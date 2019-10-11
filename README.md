@@ -50,7 +50,7 @@ compression ratio: 30.89x
 #### score calculation : 
 For CIFAR-100, parameter storage and compute requirements is be normalized relative to [WideResNet-28-10](https://arxiv.org/pdf/1605.07146.pdf), which has 36.5M parameters and 10.49B math operations.
 
-Teacher resnet18 model has parameters 11.22 millions. The quantization factor,i.e bits/weights is approx. 0.89, resulting effective parameters in compressed student model = 11.22 * 0.89 /16 M = 0.624 M, following the default 16 bit rule given. The codebooks and assignment files generated makes the inference faster, but makes the calculation of total math operations pretty challenging. However, total multiplication operation for a vanilla resnet18 is approx. 1.82B.
+Teacher resnet18 model has parameters 11.22 millions. The quantization factor,i.e bits/weights is approx. 0.89, resulting effective parameters in compressed student model = 11.22 * 0.89 /16 M = 0.624 M, following the default 16 bit rule mentioned in scoring criteria of the challenge. The codebooks and assignment files generated makes the inference faster, but also makes the calculation of total math operations pretty challenging. However, total multiplication operation for a vanilla resnet18 is approx. 1.82B. A proof follows [here]()
 
 Despite the model does not cross 80% validation margin, relative score = 0.624/36.5 + 1.82/10.49 = 0.1906
 
