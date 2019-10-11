@@ -41,12 +41,28 @@ python3 inference.py
 
 The non-compressed teacher resnet18 achieves Top1 acc 60.24% on training for 30 epoches, while the compressed student resnet18 achieves Top1 acc 53.39% on 9 epoches of finetuning.
 
-non-compressed teacher model: 42.83MB
+Non-compressed teacher model: 42.83MB
+Validation time on 10,000 samples : 14613ms
 compressed student model (indexing + centroids + other): 1.22MB + 0.09MB + 0.07MB = 1.39MB
+Validation time on 10,000 samples : 12641ms
 compression ratio: 30.89x
 
 #### score calculation : 
 For CIFAR-100, parameter storage and compute requirements is be normalized relative to [WideResNet-28-10](https://arxiv.org/pdf/1605.07146.pdf), which has 36.5M parameters and 10.49B math operations.
 
-Our compressed resnet18 has parameters 11.22M and total math operations = .......
+Teacher resnet18 model has parameters 11.22 millions. The quantization factor,i.e bits/weights is approx. 0.89, resulting effective parameters in compressed student model = 11.22 * 0.89 M = 9.985 M. The codebooks and assignment files generated makes the inference faster, but makes the calculation of total math operations pretty challenging. 
 
+
+## 4. Citation
+
+[1] Stock, Pierre and Joulin, Armand and Gribonval, Rémi and Graham, Benjamin and Jégou, Hervé. [And the bit goes down: Revisiting the quantization of neural networks](https://arxiv.org/abs/1907.05686).
+
+[2] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun. [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+
+[3] Geoffrey Hinton, Oriol Vinyals, Jeff Dean. [Distilling the Knowledge in a Neural Network](https://arxiv.org/abs/1503.02531)
+
+[4] Sergey Zagoruyko, Nikos Komodakis. [Wide Residual Networks](https://arxiv.org/abs/1605.07146)
+
+[5] Abhimanyu Dubey, Moitreya Chatterjee, Narendra Ahuja. [Coreset-Based Neural Network Compression](https://arxiv.org/abs/1807.09810)
+
+[6] Song Han, Huizi Mao, William J. Dally. [Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding](https://arxiv.org/abs/1510.00149)
