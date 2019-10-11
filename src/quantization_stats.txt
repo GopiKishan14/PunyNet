@@ -1,0 +1,61 @@
+Quantized layer: layer1.0.conv1, size: [64, 64, 3, 3], n_blocks: 64, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.01 MB
+
+
+Quantized layer: layer1.0.conv2, size: [64, 64, 3, 3], n_blocks: 64, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.01 MB
+
+
+Quantized layer: layer1.1.conv1, size: [64, 64, 3, 3], n_blocks: 64, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.01 MB
+
+
+Quantized layer: layer1.1.conv2, size: [64, 64, 3, 3], n_blocks: 64, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.01 MB
+
+
+Quantized layer: layer2.0.conv1, size: [128, 64, 3, 3], n_blocks: 64, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.01 MB
+
+
+Quantized layer: layer2.0.conv2, size: [128, 128, 3, 3], n_blocks: 128, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.02 MB
+
+
+Quantized layer: layer2.0.downsample.0, size: [128, 64, 1, 1], n_blocks: 16, block size: 4, centroids: 256, bits/weight: 2.00, compressed size: 0.00 MB
+
+
+Quantized layer: layer2.1.conv1, size: [128, 128, 3, 3], n_blocks: 128, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.02 MB
+
+
+Quantized layer: layer2.1.conv2, size: [128, 128, 3, 3], n_blocks: 128, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.02 MB
+
+
+Quantized layer: layer3.0.conv1, size: [256, 128, 3, 3], n_blocks: 128, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.04 MB
+
+
+Quantized layer: layer3.0.conv2, size: [256, 256, 3, 3], n_blocks: 256, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.07 MB
+
+
+Quantized layer: layer3.0.downsample.0, size: [256, 128, 1, 1], n_blocks: 32, block size: 4, centroids: 256, bits/weight: 2.00, compressed size: 0.01 MB
+
+
+Quantized layer: layer3.1.conv1, size: [256, 256, 3, 3], n_blocks: 256, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.07 MB
+
+
+Quantized layer: layer3.1.conv2, size: [256, 256, 3, 3], n_blocks: 256, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.07 MB
+
+
+Quantized layer: layer4.0.conv1, size: [512, 256, 3, 3], n_blocks: 256, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.13 MB
+
+
+Quantized layer: layer4.0.conv2, size: [512, 512, 3, 3], n_blocks: 512, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.25 MB
+
+
+Quantized layer: layer4.0.downsample.0, size: [512, 256, 1, 1], n_blocks: 64, block size: 4, centroids: 256, bits/weight: 2.00, compressed size: 0.03 MB
+
+
+Quantized layer: layer4.1.conv1, size: [512, 512, 3, 3], n_blocks: 512, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.25 MB
+
+
+Quantized layer: layer4.1.conv2, size: [512, 512, 3, 3], n_blocks: 512, block size: 9, centroids: 256, bits/weight: 0.89, compressed size: 0.25 MB
+
+
+Quantized layer: fc, size: [100, 512], n_blocks: 128, block size: 4, centroids: 2048, bits/weight: 2.75, compressed size: 0.03 MB
+
+
+Non-compressed teacher model: 42.83MB, compressed student model (indexing + centroids + other): 1.22MB + 0.09MB + 0.07MB = 1.39MB, compression ratio: 30.89x
