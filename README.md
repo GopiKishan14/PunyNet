@@ -37,6 +37,21 @@ cd src
 python3 inference.py
 ```
 #### Calculating number of parameters
+```
+cd src
+python3 count_params.py
+```
 
 ## 3. Results and Calculation
+
+The non-compressed teacher resnet18 achieves Top1 acc 62% on training for 30 epoches, while the compressed student resnet18 achieves Top1 acc 52.53% on 9 epoches of finetuning.
+
+non-compressed teacher model: 42.83MB
+compressed student model (indexing + centroids + other): 1.22MB + 0.09MB + 0.07MB = 1.39MB
+compression ratio: 30.89x
+
+#### score calculation : 
+For CIFAR-100, parameter storage and compute requirements is be normalized relative to [WideResNet-28-10](https://arxiv.org/pdf/1605.07146.pdf), which has 36.5M parameters and 10.49B math operations.
+
+Our compressed resnet18 has parameters ........ and total math operations = .......
 
