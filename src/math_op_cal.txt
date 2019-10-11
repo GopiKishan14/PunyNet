@@ -1,7 +1,7 @@
 Total number of multiplication performed at any Convolution layer is :
 [(kernel_size x kernel_size)x (inp_channel x out_channel) x (img_height x img_width)]
 
-For all calculation, img_height equals img_height, computed by :
+For all calculations, img_height equals img_width, computed by :
 h = int((h_prev + 2*padding - kernel_size)/stride) + 1
 
 
