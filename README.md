@@ -7,7 +7,7 @@ Our method is based on the works of the paper [And the bit goes down: Revisiting
 
 We are interested in preserving the output of the layer, not its weights. Preserving the weights a layer does not necessarily guarantee preserving its output. In other words, the Frobenius approximation of the weights of a layer is not guaranteed to be the best approximation of the output over some arbitrary domain (in particular
 for in-domain inputs).
-More precisely, given a batch of B input activations x ∈ R B×C in , we are interested in learning a codebook C that minimizes the difference between the output activations and their reconstructions.
+More precisely, given a batch of B input activations x ∈ R<sup>B×C</sup> in , we are interested in learning a codebook C that minimizes the difference between the output activations and their reconstructions.
 
 We quantize the network sequentially starting from the lowest layer to the highest layer. We guide the compression of the student network by the non-compressed teacher network, as detailled below.
 
