@@ -52,7 +52,7 @@ For CIFAR-100, parameter storage and compute requirements is be normalized relat
 
 Teacher resnet18 model has parameters 11.22 millions. The quantization factor,i.e bits/weights is approx. 0.89, resulting effective parameters in compressed student model = 11.22 * 0.89 /16 M = 0.624 M, following the default 16 bit rule mentioned in scoring criteria of the challenge. The codebooks and assignment files generated makes the inference faster, but also makes the calculation of total math operations pretty challenging. However, total multiplication operation for a vanilla resnet18 is approx. 1.82B. A proof follows [here](https://github.com/GopiKishan14/PunyNet/blob/master/src/math_op_cal.txt)
 
-Despite the model does not cross 80% validation margin, relative score = 0.624/36.5 + 1.82/10.49 = 0.1906
+Although, we acknowledge that our model <i>does not cross the 80% top-1 accuracy mark</i>, we've produced a notable output via relative score = 0.624/36.5 + 1.82/10.49 = <b>0.1906</b>
 
 ## 4. Citation
 
